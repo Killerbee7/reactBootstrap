@@ -7,17 +7,22 @@ import React, { useState } from 'react'
 
 function App() {
 
-  const [mode, setMode]= useState('dark')
-  const [modeName, setModeName]= useState('Light')
+  const [mode, setMode]= useState('primary')
+  const [background, setBackground]= useState('white')
+  const [modeName, setModeName]= useState('Dark Mode')
 
   const toggleMode=()=>{
     if(mode==="dark"){
       setMode("primary");
-      setModeName("Dark Mode")
+      setModeName("Dark Mode");
+      setBackground('grey')
+      document.body.style.backgroundColor='white';
     }
     else{
       setMode("dark");
-      setModeName("Light Mode")
+      setModeName("Light Mode");
+      document.body.style.backgroundColor='#454545';
+      setBackground('white')
     }
   }
 
@@ -26,7 +31,7 @@ function App() {
     <div>
       <Navbar modeName={modeName} mode={mode} toggleMode={toggleMode} title="TasteIT"/>
       {/* <About/> */}
-      <div className="container" ><Form heading="Enter Text"/></div>
+      <div className="container" ><Form mode={mode} background={background} heading="Enter Text"/></div>
     </div>
     
   );
