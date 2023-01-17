@@ -9,7 +9,7 @@ function BasicExample(props) {
     const [text, setText] = useState('');
 
     const handleClick = () =>{
-        let newText= text.toUpperCase()
+        let newText= text.toLowerCase()
         
         setText(newText)
     }
